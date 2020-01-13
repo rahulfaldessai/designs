@@ -8,7 +8,7 @@
     .shopping_list_inner{
         @include height(auto);
         @include width(100%);
-        display: inline-flex;
+       // display: inline-flex;
     flex-wrap: wrap;
 
         .shoppinglist_card {
