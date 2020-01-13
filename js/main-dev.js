@@ -47,6 +47,7 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
   $scope.total = 0;
   $scope.discountValue = 0;     
   $scope.totalItems = 0;
+//  $scope.people = "1";
   /*
     if ($cookieStore.get('cart') !== null) {
              $scope.cart =  $cookieStore.get('cart');
