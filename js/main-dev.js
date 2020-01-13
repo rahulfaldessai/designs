@@ -146,7 +146,7 @@ $scope.IsVisible1 = false;
                 $scope.IsVisible1 = $scope.IsVisible1 ? false : true;
             }
     
-$scope.sortlimitValue = "-price";
+//$scope.sortlimitValue = "-price";
   $scope.submitResult = function(sortlimitValue) {  
     $scope.sortlimit = $scope.sortlimitValue;
     $scope.IsVisible = $scope.IsVisible ? false : true;
