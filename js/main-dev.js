@@ -101,6 +101,8 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
 
   $scope.totalItems += parseFloat(item.count);
   $cookieStore.put('totalItems', $scope.totalItems,  {'expires': expireDate});
+        
+        $scope.cart.TotalCartQuantity= item.count; 
 
      };
 
