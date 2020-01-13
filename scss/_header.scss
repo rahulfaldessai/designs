@@ -1,0 +1,114 @@
+//header file
+
+header{
+    @include height(38px);
+     background: $color_skyblue;
+    padding: 0 10px;
+    @extend %FlexBox_AlignCenter;
+
+
+    .logo {
+        @extend %cursor_pointer;
+        @include height(25px);
+        @include width(auto);
+        & > svg {
+            @include height(25px);
+            @include transform(skewX(10deg));      
+    
+            & > path {
+                fill: $color_yellow;
+            }
+        }
+    }
+    
+    .search_box {
+        @extend %FlexBox_AlignCenter;
+        // flex-direction: row-reverse;
+        @include flex(1);
+        margin: 0 0.7em;
+
+        &:before {
+            content: "";
+            flex: 3;
+            height: 25px;
+        }
+
+        .search_inner {
+            position: relative;
+            flex: 1;
+
+            & input[type="text"] {
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid $color_white;
+                color: $color_white;
+                padding: 5px 25px 5px 0;
+                outline: none;
+                @include width(100%);
+    
+            }
+
+            & input[type="text"]::placeholder {
+                color: $color_white;
+                opacity: 1;
+              }
+              & input[type="text"]:-ms-input-placeholder {
+               color: $color_white;
+              }
+              & input[type="text"]::-ms-input-placeholder {
+               color: $color_white;
+              }
+
+            & > div {
+                background: transparent;
+                border: none;
+                padding: 0;
+                position: absolute;
+                right: 0;
+                top: 2px;
+               // cursor: pointer;
+
+                & > svg {
+                    @include width(auto);
+                    @include height(22px);
+
+                    & > path {
+                        fill: $color_white;
+                    }
+                }
+            }
+        }
+    }
+    
+    .shopping_cart{
+        @extend %cursor_pointer;
+        position: relative;
+        @include height(25px);
+        @include width(auto);
+        margin-right: 0.7em;
+    
+        & > svg {
+            @include height(25px);     
+    
+            & > path {
+                fill: $color_white;
+            }
+        }
+    
+        .shopping_value {
+            position: absolute;
+            font-size: 0.55em;
+            right: -10px;
+            top: -5px;
+            padding: 3px;       
+            @extend %FlexBox_AlignCenter;
+            justify-content: center;
+            @include height(18px);
+            @include width(18px);
+            color: $color_white;
+            background: $color_red;
+            @include borderRadius(50px)
+        }
+    }    
+
+ }

@@ -1,0 +1,90 @@
+.shopping_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+
+    .shopping_list_inner{
+        @include height(auto);
+        @include width(100%);
+        display: inline-flex;
+    flex-wrap: wrap;
+
+        .shoppinglist_card {
+            display: inline-block;
+            width: 20%;
+            flex-direction: column;
+            border-bottom: 1px solid $color_grey;
+            border-right: 1px solid $color_grey;
+            padding: 10px;
+            font-size: 0.8em;
+        
+            .shoppinglist_img {
+                @include height(190px);
+                overflow: hidden;
+                @include width(auto);
+                @extend %FlexBox_AlignCenter;
+                justify-content: center;
+                background: $color_midgrey;
+        
+              & > img {
+                    @include height(auto);
+                    @include width(100%);
+                    transition: height .5s ease-in-out;
+
+                    &:hover {
+                        @include height(150%);
+                    @include width(auto);
+                    }
+                }
+            }
+            .shoppinglist_name {
+                margin: 10px 0;
+            }
+            .shoppinglist_amount_box {
+                font-weight: bold;
+                margin: 5px 0;
+
+                & > span {
+                    margin-right: 10px;
+                }
+                .old_price {
+                    color: $color_darkgrey;
+                    text-decoration: line-through;
+                    font-size: 0.90em;
+                }
+                .discount{
+                    color: $color_green;
+                    font-size: 0.90em;
+                }
+            }
+
+            .shopping_btn{
+                @extend %FlexBox_AlignCenter;
+                justify-content: center;
+                margin: 20px 0 0;
+
+                button{
+                background: $color_yellow;
+                border: none;
+                outline: none;
+                @include borderRadius(50px);
+                padding: 8px;
+                font-size: 0.9em;
+                font-weight: bold;
+                @extend %cursor_pointer;
+                transition: all 0.5s linear;
+
+                &:hover {
+                    background: #c78c1b;
+                }
+
+                }
+            }
+
+        }
+
+    }
+}
+

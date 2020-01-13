@@ -1,0 +1,55 @@
+//config file
+
+//variables
+$color_offwhite : rgba(242, 243, 247, 1);
+$color_grey : rgba(204, 204, 204, 1);
+$color_midgrey: rgba(221, 221, 221, 1);
+$color_darkgrey: rgba(136, 136, 136, 1);
+$color_skyblue : rgba(66, 105, 234, 1);
+$color_yellow : rgba(242, 170, 34, 1);
+$color_white : rgba(255, 255, 255, 1);
+$color_red : rgba(222, 42, 51, 1);
+$color_green : rgba(0, 128, 0, 1);
+
+$font_Verdana : verdana, helvetica, arial, sans-serif;
+
+//@extend
+%FlexBox_AlignCenter{
+    display: flex;
+    align-items: center;
+}
+%cursor_pointer{
+    cursor: pointer;
+}
+
+//@mixin
+@mixin height($heightValue) {
+    height: $heightValue;
+}
+@mixin width($widthValue) {
+    width: $widthValue;
+}
+
+@mixin borderRadius($radiusValue) {
+    border-radius: $radiusValue;
+    -webkit-border-radius: $radiusValue;
+    -moz-border-radius: $radiusValue;
+    -ms-border-radius: $radiusValue;
+    -o-border-radius: $radiusValue;
+}
+
+@mixin flex($flexValue) {
+    -webkit-box-flex: $flexValue;
+    -moz-flex: $flexValue;
+    -ms-flex: $flexValue;
+    flex: $flexValue;
+}
+
+@mixin transform($transformValue) {
+    -webkit-transform: $transformValue;
+    -moz-transform: $transformValue;
+    -ms-transform: $transformValue; 
+    -o-transform: $transformValue;      
+    transform: $transformValue; 
+}
+

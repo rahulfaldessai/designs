@@ -1,0 +1,126 @@
+<div ng-include="'template/header.html'"></div>
+
+<section class="search_box" ng-show='panel.isSelected(1)'>
+
+    <div class="smallscreen_action_box" ng-include="'template/sortcontrols.html'"></div>
+
+    <div class="desktop_action_view">
+        <div class="filter_box">
+            <div class="title_box">Filters</div>
+            <div class="filter-slider">
+                    <slider floor="100" ceiling="10000" ng-model-low="lower_price_bound" ng-model-high="upper_price_bound"></slider>
+                    <span class="bubble selection price-tag">Price</span>
+            </div>
+            <div class="filter-btn">
+                <button ng-click="priceRange(lower_price_bound, upper_price_bound)">Apply</button>
+            </div>
+        </div>
+        <div class="shoppinglist_box">
+            <div class="title_box sort_box">
+                <span>Sort By</span>
+                <span class="sort-link">
+                        <span ng-click="sortlimit='-price';" ng-class="{'activelink': sortlimit=='-price'}">Price -- High Low</span>
+                        <span ng-click="sortlimit='price';" ng-class="{'activelink': sortlimit=='price'}">Price -- Low High</span>
+                        <span ng-click="sortlimit='-discount';" ng-class="{'activelink': sortlimit=='discount'}">Discount</span>
+                </span>
+            </div>
+            <div class="shopping_list" ng-include="'template/shoppinglist.html'"></div>
+        </div>
+    </div>
+
+
+    <div class="popup-box ng-scope" ng-show="IsVisible">
+            <div class="popup-title">Sort Options</div>
+                <div class="popup-body">
+                        <div class="radio-box">
+                                <input type="radio" id="f-option" name="selector" ng-model='sortlimitValue' value='-price'>
+                                <label for="f-option" ng-model='sortlimitValue' value='-price'>Price -- High Low</label>
+                                <span class="fancy_radio">
+                        </div>
+                        <div class="radio-box">
+                                <input type="radio" id="f-option1" name="selector" ng-model='sortlimitValue' value='price'>
+                                <label for="f-option1" ng-model='sortlimitValue' value='price'>Price -- Low High</label>
+                                <span class="fancy_radio">
+                        </div>
+                        <div class="radio-box">
+                                <input type="radio" id="f-option2" name="selector" ng-model='sortlimitValue' value='-discount'>
+                                <label for="f-option2" ng-model='sortlimitValue' value='-discount'>Discount</label>
+                                <span class="fancy_radio">
+                        </div>
+                </div>
+                <div class="popup-footer">
+                    <button ng-click="ShowHide()">Cancel</button>
+                    <button ng-click="submitResult(sortlimitValue)">Apply</button>
+                </div>
+            </div>
+            <div class="popup-overlay" ng-show = "IsVisible" ng-click="ShowHide()"></div>
+            <div class="popup-box ng-scope" ng-show="IsVisible1">
+                    <div class="popup-title">Filter Options</div>
+                        <div class="popup-body">
+                                <div class="filter-slider">
+                                        <slider floor="100" ceiling="10000" ng-model-low="lower_price_bound" ng-model-high="upper_price_bound"></slider>
+                                        <span class="bubble selection price-tag">Price</span>
+                                </div>  
+                        </div>
+                        <div class="popup-footer">
+                            <button ng-click="ShowHide1()">Cancel</button>
+                            <button ng-click="submitResult(sortlimitValue1)">Apply</button>
+                        </div>
+                    </div>
+                    <div class="popup-overlay" ng-show = "IsVisible1" ng-click="ShowHide1()"></div>
+
+</section>
+
+<section class="cart_box" ng-show='panel.isSelected(2)'>
+<div class="cart_box_one">
+        <div class="flex-inner">
+        <div class="inner_cart_box">
+                <div class="cart_list" ng-repeat="c in cart">
+                <div class="cart_list_img">
+                    <img ng-src="{{c.img_url}}" title="{{c.category}}" />
+                </div>
+                <div class="cart_list_details">
+                    <div class="cart_list_name">{{c.name}}</div>
+                    <div class="cart_other_details">
+                        <div class="cart_details_list">
+                            <span class="new_price">₹<span ng-bind="(c.price*c.count - (c.price*c.count/100)*c.discount)"></span></span>
+                <span class="old_price" ng-if="!c.discount == 0">{{c.price*c.count}}</span>
+                <span class="discount" ng-if="!c.discount == 0">{{c.discount}}% Off</span>
+                        </div>
+                        <div class="cart_count">
+                            <span ng-click="removeItemCart(c)" class="cart_btn">-</span>
+                            <span class="number_box">{{c.count}}</span>
+                            <span ng-click="addItemToCart(c)" class="cart_btn">+</span>
+                        </div>
+                        <div class="remove_cart_list">
+                            <button type="button" ng-click="removeItemCart(c)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    </div>
+                    <div class="total_box">
+                        <div class="total_title">Price Details</div>
+                        <div class="total_body">
+                                <div class="sub_total">
+                                        <!-- <span>Price {{totalItems}} (item<span ng-show="totalItems > 1">(s)</span>) :</span> -->
+                                        <span>Price :</span>
+                                         <span>₹{{total}}</span>   
+                                    </div>
+                                    <div class="discount">
+                                            <span>Discount :</span>
+                                            <span>₹{{total - discountValue}}</span>  
+                                    </div>
+                        </div>
+                        <div class="finalValue">
+                            <span>Total Payable</span>
+                            <span>₹{{discountValue}}</span>
+                        </div>
+                    </div>
+                    </div>
+</div>
+</section>
+
+<footer>
+    <span>&copy;copyright</span>
+</footer>

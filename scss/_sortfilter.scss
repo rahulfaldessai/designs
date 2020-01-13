@@ -1,0 +1,165 @@
+.smallscreen_action_box {
+    @extend %FlexBox_AlignCenter;
+    @include height(2.5em);
+    display: none;
+
+    & > div {
+        @extend %FlexBox_AlignCenter;
+        @include flex(1);
+        justify-content: center;
+        @include height(100%);
+        border-bottom: 1px solid $color_grey;
+        @extend %cursor_pointer;
+
+        & > svg {
+            @include height(20px);
+            margin-right: 0.5em;
+        }
+    }
+    & > div.small_sort {
+        border-right: 1px solid $color_grey;
+    }
+
+}
+.popup-box {
+    position: absolute;
+    @include height(auto);
+    background: $color_white;
+    @include width(70%);
+    left: calc(100% - 85%);
+    top: 10%;
+    z-index: 4;
+    border: 1px solid $color_darkgrey;
+    .popup-title {
+        font-weight: 700;
+    }
+    .popup-title, .popup-body {
+        padding: 10px;
+    }
+    .popup-body {
+        min-height: 130px;
+
+        .radio-box{
+            display: flex;
+            margin: 10px 0;
+
+            input[type=radio] {
+                position: absolute;
+                visibility: hidden;
+                z-index: 2;
+            }
+            label {
+                font-weight: 300;
+                padding: 0 0 0 30px;
+                cursor: pointer;
+                transition: all .25s linear;
+            }
+            input[type=radio]:checked ~ label {
+                color: #4269ea;
+            }
+            .fancy_radio {
+                display: inline-block;
+                height: 20px;
+                width: 20px;
+                overflow: hidden;
+                border-radius: 50px;
+                cursor: pointer;
+                border: 2px solid #4269ea;
+                position: absolute;
+
+                &::before {
+                    display: none;
+                    position: absolute;
+                    content: '';
+                    height: 12px;
+                    width: 12px;
+                    background: #4269ea;
+                    border-radius: 50px;
+                    left: 2px;
+                    top: 2px;
+                    transition: background 0.25s linear;
+                    -webkit-transition: background 0.25s linear;
+                }
+            }
+            input[type=radio]:checked ~ .fancy_radio::before{
+                display: block;
+            }
+
+        }
+    }
+    .popup-footer {
+        border-top: 1px solid $color_grey;
+        display: flex;
+
+        & > button {
+            background: transparent;
+            border: none;
+            @include width(50%);
+            padding: 0;
+            @include height(35px);
+            font-size: .9em;
+            font-weight: bold;
+            color: $color_skyblue;
+            @extend %cursor_pointer;
+            outline: none;
+            &:first-child {
+                border-right: 1px solid $color_grey;
+            }
+            &:hover {
+                background: #f7f7f7;
+            }
+        }
+    }
+}
+
+.popup-overlay {
+    position: absolute;
+    @include height(calc(100% - 59px));
+    @include width(100%);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    top: 38px;
+}
+
+.desktop_action_view {
+    @include height(100%);
+    display: flex;
+
+    .filter_box {
+        @include height(100%);
+        @include flex(1);
+        border-right: 1px solid $color_grey;
+        padding: 0 10px;
+    }
+    .title_box{
+        @extend %FlexBox_AlignCenter;
+        @include height(2.5em);
+    }
+    .shoppinglist_box {
+        @include flex(5);
+        /* padding: 0 10px; */
+        .sort_box{
+            padding: 0 10px;
+            border-bottom: 1px solid $color_grey;
+
+            .sort-link {
+                font-size: 0.89em;
+                color: $color_darkgrey;
+                margin-left: 30px;
+
+                & > span {
+                    margin: 0 10px;
+                    @extend %cursor_pointer;
+
+                    &:hover, &.activelink {
+                        color: $color_skyblue;
+                        border-bottom: 1.5px solid $color_skyblue;
+                    }
+                }
+            }
+        }
+
+        @import 'shoppinglist';
+    }
+
+}

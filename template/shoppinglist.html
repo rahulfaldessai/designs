@@ -1,0 +1,14 @@
+<div class="shopping_list_inner">
+        <div ng-repeat="item in items | filter:searchData:priceRange | orderBy:sortlimit" id="{{item.id}}" class="shoppinglist_card">
+                <div class="shoppinglist_img"><img ng-src="{{item.img_url}}" title="{{item.category}}" /></div>
+                <div class="shoppinglist_name">{{item.name}}</div>
+                <div class="shoppinglist_amount_box">
+                <span class="new_price">₹<span ng-bind="(item.price - (item.price/100)*item.discount)"></span></span>
+                <span class="old_price" ng-if="!item.discount == 0">{{item.price}}</span>
+                <span class="discount" ng-if="!item.discount == 0">{{item.discount}}% Off</span>
+                </div>
+                <div class="shopping_btn">
+                    <button ng-click="addItemToCart(item)">Add to Cart</button>
+                </div>
+        </div>
+</div>
