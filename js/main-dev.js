@@ -14,9 +14,9 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     var url = "https://api.myjson.com/bins/qzuzi";
     $http.get(url).success(function (response) {
         $scope.items = response;
-        $scope.items.forEach(function (item) {
-			item.Quantity = 0
-		 });
+//         $scope.items.forEach(function (item) {
+// 			item.Quantity = 0
+// 		 });
     });
 
     $scope.sortlimit = "-price";
@@ -69,7 +69,7 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
 }
     
     $scope.addItemToCart = function(item){
-        item.Quantity +=1
+        //item.Quantity +=1
          if ($scope.cart.length === 0){
             item.count = 1;
              $scope.cart.push(item);
