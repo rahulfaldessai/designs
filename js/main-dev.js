@@ -1,14 +1,14 @@
 var app = angular.module('myModule', ['uiSlider', 'ngCookies']);
-app.filter('nfcurrency', ['$filter', '$locale', function ($filter, $locale) {
+// app.filter('nfcurrency', ['$filter', '$locale', function ($filter, $locale) {
 
-    var currency = $filter('currency'),
-        formats = $locale.NUMBER_FORMATS;
+//     var currency = $filter('currency'),
+//         formats = $locale.NUMBER_FORMATS;
 
-    return function (amount, symbol) {
-        var value = currency(amount, symbol);
-        return value.replace(new RegExp('\\' + formats.DECIMAL_SEP + '\\d{2}'), '');
-    };
-}]);
+//     return function (amount, symbol) {
+//         var value = currency(amount, symbol);
+//         return value.replace(new RegExp('\\' + formats.DECIMAL_SEP + '\\d{2}'), '');
+//     };
+// }]);
 app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', function($scope, $http, $cookies, $cookieStore) {
 
     var url = "https://api.myjson.com/bins/qzuzi";
@@ -27,8 +27,8 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
   $scope.upper_price_bound = 10000;
 
   $scope.priceRange = function(lower_price_bound, upper_price_bound) {
-    //return (parseInt(lower_price_bound) >= $scope.lower_price_bound && parseInt(upper_price_bound) <= $scope.upper_price_bound);
-alert(lower_price_bound + " | " + upper_price_bound);
+    return (parseInt(lower_price_bound) >= $scope.lower_price_bound && parseInt(upper_price_bound) <= $scope.upper_price_bound);
+//alert(lower_price_bound + " | " + upper_price_bound);
   };
 
 

@@ -29,7 +29,7 @@
     </div>
 
 
-    <div class="popup-box ng-scope" ng-show="IsVisible">
+    <div class="popup-box" ng-show="IsVisible">
             <div class="popup-title">Sort Options</div>
                 <div class="popup-body">
                         <div class="radio-box">
@@ -54,7 +54,8 @@
                 </div>
             </div>
             <div class="popup-overlay" ng-show = "IsVisible" ng-click="ShowHide()"></div>
-            <div class="popup-box ng-scope" ng-show="IsVisible1">
+
+            <div class="popup-box" ng-show="IsVisible1">
                     <div class="popup-title">Filter Options</div>
                         <div class="popup-body">
                                 <div class="filter-slider">
@@ -64,7 +65,7 @@
                         </div>
                         <div class="popup-footer">
                             <button ng-click="ShowHide1()">Cancel</button>
-                            <button ng-click="submitResult(sortlimitValue1)">Apply</button>
+                            <button>Apply</button>
                         </div>
                     </div>
                     <div class="popup-overlay" ng-show = "IsVisible1" ng-click="ShowHide1()"></div>
