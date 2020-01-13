@@ -47,6 +47,9 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
   $scope.total = 0;
   $scope.discountValue = 0;     
   $scope.totalItems = 0;
+    $scope.ckhAsc=true;
+    $scope.ckhDsc=false;
+    $scope.ckhDis=false;
   /*
     if ($cookieStore.get('cart') !== null) {
              $scope.cart =  $cookieStore.get('cart');
@@ -147,8 +150,31 @@ $scope.IsVisible1 = false;
             }
     
 //$scope.sortlimitValue = "-price";
+  $scope.checkChange = function(checkChange){
+      console.log('checkChange',checkChange)
+   $scope.sortlimitValue = checkChange;
+      chkAsc=false;        chkDsc=false;        chkDis=false;
+   if(checkChange=1){
+       chkAsc=true;
+   }
+   if(checkChange=2){
+       chkDsc=true;
+   }
+   if(checkChange=3)
+       chkDis=true;
+   
+  }
   $scope.submitResult = function(sortlimitValue) {  
-    $scope.sortlimit = $scope.sortlimitValue;
+   // $scope.sortlimit = $scope.sortlimitValue;
+      switch(sortlimitValue){
+          case 1 : '-price';
+              break;
+          case 2 : 'price';
+              break;
+          case 3 : '-discount';
+              break;
+              default : '-price';
+      };
     $scope.IsVisible = $scope.IsVisible ? false : true;
   };
 
