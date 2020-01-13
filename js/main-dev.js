@@ -43,9 +43,7 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     return this.tab === checkTab;
   } 
 
-  $scope.cart ={
-      TotalCartQuantity:0
-  };
+  $scope.cart =[];
   $scope.total = 0;
   $scope.discountValue = 0;     
   $scope.totalItems = 0;
@@ -71,8 +69,10 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
 }
     
     $scope.addItemToCart = function(item){
+        
         //item.Quantity +=1
          if ($scope.cart.length === 0){
+              $scope.cart.TotalCartQuantity=0;
             item.count = 1;
              $scope.cart.push(item);
          } else {
