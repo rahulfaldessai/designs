@@ -130,7 +130,8 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     $scope.discountValue -= parseFloat(item.price - (item.price/100) * item.discount);
    $cookieStore.put('discount', $scope.discountValue,  {'expires': expireDate});
 
-  $scope.totalItems -= parseFloat(item.count);
+  //$scope.totalItems -= parseFloat(item.count);
+  $scope.totalItems -= 1;
   $cookieStore.put('totalItems', $scope.totalItems,  {'expires': expireDate});
 
      };
