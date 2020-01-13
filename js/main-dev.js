@@ -43,7 +43,9 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     return this.tab === checkTab;
   } 
 
-  $scope.cart = [];
+  $scope.cart ={
+      TotalCartQuantity:0
+  };
   $scope.total = 0;
   $scope.discountValue = 0;     
   $scope.totalItems = 0;
