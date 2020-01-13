@@ -101,8 +101,7 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
 
   $scope.totalItems += parseFloat(item.count);
   $cookieStore.put('totalItems', $scope.totalItems,  {'expires': expireDate});
-        alert(item.count)
-        $scope.cart.TotalCartQuantity=$scope.cart.TotalCartQuantity + item.count; 
+        $scope.cart.TotalCartQuantity+= parseFloat(item.count); 
         alert($scope.cart.TotalCartQuantity);
 
      };
@@ -133,8 +132,7 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
 
   $scope.totalItems -= parseFloat(item.count);
   $cookieStore.put('totalItems', $scope.totalItems,  {'expires': expireDate});
-          alert(item.count);
-       $scope.cart.TotalCartQuantity= $scope.cart.TotalCartQuantity - item.count;
+       $scope.cart.TotalCartQuantity-= item.count;
          alert($scope.cart.TotalCartQuantity);
      };
 
