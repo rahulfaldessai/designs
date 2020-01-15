@@ -184,8 +184,8 @@ $scope.IsVisible1 = false;
    // $scope.IsVisible = $scope.IsVisible ? false : true;
   };
     
-    if(cart.length == 0){
-    alert("Cart is: " + cart.length);
-    }
+//     if(cart.length == 0){
+//     alert("Cart is: " + cart.length);
+//     }
 
 }]);
