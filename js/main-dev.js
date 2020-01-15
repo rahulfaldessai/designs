@@ -32,13 +32,8 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', '
   $scope.priceRange = function() {
      console.log("Price Range:", $scope.items);
       
-      var rateSelected = $filter('filter')($scope.items, function (obj) {
-                        if(obj.price== 200)
-                        return obj;
-                }); rateSelected;
-      
-       console.log("Price rateSelected:", rateSelected);
-      
+     var  filteredHomes = $scope.items.filter(x => x.price <= $scope.upper_price_bound && x.price >= $scope.lower_price_bound );
+     console.log("filteredHomes:", filteredHomes);
    // return (parseInt(items.price) >= $scope.lower_price_bound && parseInt(items.price) <= $scope.upper_price_bound);
 //alert(lower_price_bound + " | " + upper_price_bound);
   };
