@@ -51,7 +51,7 @@
                 <div class="popup-footer">
                     {{changedVal}}
                     <button ng-click="ShowHide()">Cancel</button>
-                    <button ng-click="submitResult(changedVal)">Apply</button>
+                    <button ng-click="submitResult(changedVal); ShowHide()">Apply</button>
                 </div>
             </div>
             <div class="popup-overlay" ng-show = "IsVisible" ng-click="ShowHide()"></div>
