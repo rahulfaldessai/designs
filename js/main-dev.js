@@ -9,7 +9,7 @@ var app = angular.module('myModule', ['uiSlider', 'ngCookies']);
 //         return value.replace(new RegExp('\\' + formats.DECIMAL_SEP + '\\d{2}'), '');
 //     };
 // }]);
-app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', function($scope, $http, $cookies, $cookieStore) {
+app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', '$filter', function($scope, $http, $cookies, $cookieStore, $filter) {
 
     var url = "https://api.myjson.com/bins/qzuzi";
     $http.get(url).success(function (response) {
