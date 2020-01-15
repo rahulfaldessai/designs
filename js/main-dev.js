@@ -162,6 +162,11 @@ $scope.upper_price_bound = 10000;
 
   $scope.totalItems -= 1;
   $cookieStore.put('totalItems', $scope.totalItems,  {'expires': expireDate});
+         
+if($scope.cart.length == 0){
+ alert("Cart is: " + $scope.cart.length);
+    this.isSelected(1);
+}
 
      };
 
@@ -190,8 +195,6 @@ $scope.IsVisible1 = false;
    // $scope.IsVisible = $scope.IsVisible ? false : true;
   };
     
-//     if(cart.length == 0){
-//     alert("Cart is: " + cart.length);
-//     }
+
 
 }]);
