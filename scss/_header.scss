@@ -59,14 +59,13 @@ header{
                color: $color_white;
               }
 
-            & > div {
+            & > .searchIcon {
                 background: transparent;
                 border: none;
                 padding: 0;
                 position: absolute;
                 right: 0;
                 top: 2px;
-               // cursor: pointer;
 
                 & > svg {
                     @include width(auto);
@@ -81,7 +80,6 @@ header{
     }
     
     .shopping_cart{
-        @extend %cursor_pointer;
         position: relative;
         @include height(25px);
         @include width(auto);
@@ -108,6 +106,9 @@ header{
             color: $color_white;
             background: $color_red;
             @include borderRadius(50px)
+        }
+        &.cartValue{
+            @extend %cursor_pointer;
         }
     }    
 

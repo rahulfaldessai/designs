@@ -173,6 +173,10 @@ body{
                 }
             }
         }
+        .no-result {
+            padding: 10px;
+            color: #b3b3b3;
+        }
     }
 
     footer{
@@ -498,5 +502,10 @@ body{
         min-width: 80px;
         outline: none;
         @extend %cursor_pointer;
+        transition: all 1s linear;
+
+        &:hover {
+            background: #3557c7;
+        }
     }
 }
