@@ -147,9 +147,9 @@ $scope.IsVisible1 = false;
             }
     
 //$scope.sortlimitValue = "-price";
-  $scope.submitResult = function(sortlimitValue) {  
-      alert('sortlimitValue', sortlimitValue)
-    $scope.sortlimit = sortlimitValue;
+  $scope.submitResult = function(changedVal) {  
+      alert('sortlimitValue', changedVal)
+    $scope.sortlimit = changedVal;
 //       switch(sortlimitValue){
 //           case 1 : '-price';
 //               break;
