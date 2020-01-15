@@ -26,13 +26,14 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', '
     $scope.searchDataBy = '$'
 
 
-    $scope.lower_price_bound = 100;
-  $scope.upper_price_bound = 10000;
+//     $scope.lower_price_bound = 100;
+//   $scope.upper_price_bound = 10000;
 
-  $scope.priceRange = function() {
+  $scope.priceRange = function(lower_price_bound, upper_price_bound) {
      console.log("Price Range:", $scope.items);
-      
-     var  filteredHomes = $scope.items.filter(x => x.price <= $scope.upper_price_bound && x.price >= $scope.lower_price_bound );
+     console.log("lower_price_bound:", lower_price_bound);
+      console.log("upper_price_bound:", upper_price_bound);
+     var  filteredHomes = $scope.items.filter(x => x.price <= upper_price_bound && x.price >= lower_price_bound );
      console.log("filteredHomes:", filteredHomes);
    // return (parseInt(items.price) >= $scope.lower_price_bound && parseInt(items.price) <= $scope.upper_price_bound);
 //alert(lower_price_bound + " | " + upper_price_bound);
