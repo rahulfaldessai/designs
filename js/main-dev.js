@@ -165,7 +165,8 @@ $scope.upper_price_bound = 10000;
          
 if($scope.cart.length == 0){
  alert("Cart is: " + $scope.cart.length);
-    $scope.panel.isSelected = 1;
+    //$scope.panel.isSelected = 1;
+    $scope.panel.tab=1;
 }
 
      };
