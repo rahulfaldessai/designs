@@ -26,8 +26,8 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', '
     $scope.searchDataBy = '$'
 
 
-//     $scope.lower_price_bound = 100;
-//   $scope.upper_price_bound = 10000;
+$scope.lower_price_bound = 100;
+$scope.upper_price_bound = 10000;
 
   $scope.priceRange = function(lower_price_bound, upper_price_bound) {
      console.log("Price Range:", $scope.items);
