@@ -14,6 +14,7 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', '
     var url = "https://api.myjson.com/bins/qzuzi";
     $http.get(url).success(function (response) {
         $scope.items = response;
+        $scope.filteredItems = angular.copy($scope.items);
 //         $scope.items.forEach(function (item) {
 // 			item.Quantity = 0
 // 		 });
@@ -30,11 +31,13 @@ $scope.lower_price_bound = 100;
 $scope.upper_price_bound = 10000;
 
   $scope.priceRange = function(lower_price_bound, upper_price_bound) {
-     console.log("Price Range:", $scope.items);
-     console.log("lower_price_bound:", lower_price_bound);
-      console.log("upper_price_bound:", upper_price_bound);
-     var  filteredHomes = $scope.items.filter(x => x.price <= upper_price_bound && x.price >= lower_price_bound );
-     console.log("filteredHomes:", filteredHomes);
+     //console.log("Price Range:", $scope.items);
+     //console.log("lower_price_bound:", lower_price_bound);
+     // console.log("upper_price_bound:", upper_price_bound);
+     //var  filteredHomes = $scope.items.filter(x => x.price <= upper_price_bound && x.price >= lower_price_bound );
+     //console.log("filteredHomes:", filteredHomes);
+      
+      $scope.filteredItems = $scope.items.filter(x => x.price <= upper_price_bound && x.price >= lower_price_bound );
    // return (parseInt(items.price) >= $scope.lower_price_bound && parseInt(items.price) <= $scope.upper_price_bound);
 //alert(lower_price_bound + " | " + upper_price_bound);
   };
