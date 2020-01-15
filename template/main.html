@@ -29,28 +29,29 @@
     </div>
 
 
-    <div class="popup-box" ng-show="IsVisible">
+    <div class="popup-box" ng-show="IsVisible" ng-init="people=1">
             <div class="popup-title">Sort Options</div>
                 <div class="popup-body">
                         <div class="radio-box">
-                                <input type="radio" id="f-option" name="selector" ng-model='sortlimitValue' value='-price'>
-                                <label for="f-option" ng-model='sortlimitValue' value='-price'>Price -- High Low</label>
+                                <input type="radio" id="f-option" name="selector" ng-model="people" value="1">
+                                <label for="f-option" ng-model="people" value="1">Price -- High Low</label>
                                 <span class="fancy_radio">
                         </div>
                         <div class="radio-box">
-                                <input type="radio" id="f-option1" name="selector" ng-model='sortlimitValue' value='price'>
-                                <label for="f-option1" ng-model='sortlimitValue' value='price'>Price -- Low High</label>
+                                <input type="radio" id="f-option1" name="selector" ng-model="people" value="2">
+                                <label for="f-option1" ng-model="people" value="2">Price -- Low High</label>
                                 <span class="fancy_radio">
                         </div>
                         <div class="radio-box">
-                                <input type="radio" id="f-option2" name="selector" ng-model='sortlimitValue' value='-discount'>
-                                <label for="f-option2" ng-model='sortlimitValue' value='-discount'>Discount</label>
+                                <input type="radio" id="f-option2" name="selector" ng-model="people" value="3">
+                                <label for="f-option2" ng-model="people" value="3">Discount</label>
                                 <span class="fancy_radio">
                         </div>
                 </div>
                 <div class="popup-footer">
+                    {{10*people}}
                     <button ng-click="ShowHide()">Cancel</button>
-                    <button ng-click="submitResult(sortlimitValue)">Apply</button>
+                    <button ng-click="submitResult(people)">Apply</button>
                 </div>
             </div>
             <div class="popup-overlay" ng-show = "IsVisible" ng-click="ShowHide()"></div>

@@ -14,6 +14,9 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     var url = "https://api.myjson.com/bins/qzuzi";
     $http.get(url).success(function (response) {
         $scope.items = response;
+//         $scope.items.forEach(function (item) {
+// 			item.Quantity = 0
+// 		 });
     });
 
     $scope.sortlimit = "-price";
@@ -40,10 +43,11 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     return this.tab === checkTab;
   } 
 
-  $scope.cart = [];
+  $scope.cart =[];
   $scope.total = 0;
   $scope.discountValue = 0;     
   $scope.totalItems = 0;
+//  $scope.people = "1";
   /*
     if ($cookieStore.get('cart') !== null) {
              $scope.cart =  $cookieStore.get('cart');
@@ -66,7 +70,10 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
 }
     
     $scope.addItemToCart = function(item){
+        
+        //item.Quantity +=1
          if ($scope.cart.length === 0){
+              $scope.cart.TotalCartQuantity=0;
             item.count = 1;
              $scope.cart.push(item);
          } else {
@@ -124,9 +131,10 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     $scope.discountValue -= parseFloat(item.price - (item.price/100) * item.discount);
    $cookieStore.put('discount', $scope.discountValue,  {'expires': expireDate});
 
+
   $scope.totalItems -= 1;
   $cookieStore.put('totalItems', $scope.totalItems,  {'expires': expireDate});
-       
+
      };
 
      $scope.IsVisible = false;
@@ -137,10 +145,21 @@ $scope.IsVisible1 = false;
             $scope.ShowHide1 = function () {
                 $scope.IsVisible1 = $scope.IsVisible1 ? false : true;
             }
-
+    
+//$scope.sortlimitValue = "-price";
   $scope.submitResult = function(sortlimitValue) {  
+      alert('sortlimitValue', sortlimitValue)
     $scope.sortlimit = sortlimitValue;
-    $scope.IsVisible = $scope.IsVisible ? false : true;
+//       switch(sortlimitValue){
+//           case 1 : '-price';
+//               break;
+//           case 2 : 'price';
+//               break;
+//           case 3 : '-discount';
+//               break;
+//               default : '-price';
+//       };
+   // $scope.IsVisible = $scope.IsVisible ? false : true;
   };
 
 }]);
