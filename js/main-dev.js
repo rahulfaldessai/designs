@@ -29,10 +29,32 @@ app.controller('mycontroller', ['$scope', '$http', '$cookies', '$cookieStore', f
     $scope.lower_price_bound = 100;
   $scope.upper_price_bound = 10000;
 
-  $scope.priceRange = function(lower_price_bound, upper_price_bound) {
-    return (parseInt(lower_price_bound) >= $scope.lower_price_bound && parseInt(upper_price_bound) <= $scope.upper_price_bound);
+  $scope.priceRange = function() {
+     console.log("Price Range:", $scope.items);
+      
+   // return (parseInt(items.price) >= $scope.lower_price_bound && parseInt(items.price) <= $scope.upper_price_bound);
 //alert(lower_price_bound + " | " + upper_price_bound);
   };
+    
+//     $scope.horsepowerFilter = function (plane) {
+//     var horsepower = parseFloat(plane.horsepower);
+//     var min = parseFloat($scope.minHorsepower);
+//     var max = parseFloat($scope.maxHorsepower);
+    
+//     if (!horsepower) {
+//       return false;
+//     }
+  
+//     if(min && horsepower < min) {
+//       return false;
+//     }
+    
+//     if(max && horsepower > max) {
+//       return false;
+//     }
+  
+//     return true;
+//   };
 
 
   this.tab = 1;
