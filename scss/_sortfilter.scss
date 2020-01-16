@@ -66,6 +66,7 @@
                 cursor: pointer;
                 border: 2px solid #4269ea;
                 position: absolute;
+                pointer-events: none;
 
                 &::before {
                     display: none;
